@@ -3,8 +3,15 @@ from pyramid.view import view_config
 
 @view_config(route_name='home', renderer='json', request_method='GET')
 def home_view(request):
-    """
+    """Displays the landing page of this webpage. This shows the possible API calls
 
+        Args:
+            requst- This is the GET request that is linked to the '/' path, which is the
+                    landing page.
+        Return:
+            A message containing the possible api route calls
+            A status message of 200, which is not necessary to specify since its implied
+                >Im doing this anyway to remember Response takes in this argument.
     """
     message = '''
     GET / - the base API route

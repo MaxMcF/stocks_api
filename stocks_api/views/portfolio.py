@@ -3,12 +3,9 @@ from pyramid.response import Response
 
 
 class PortfolioAPIView(APIViewSet):
+    '''This class displays the api endpoint message. It is not built out yet, as it needs
+    actual functionality besides just sending jsons.
+    '''
 
-    def list(self, request):
-        return Response(json={'message': 'Listing all the portfolios'}, status=200)
-
-    def create(self, request):
-        return Response(json={'message': 'Creating a single portfolio item'}, status=201)
-
-    def destroy(self, request, id):
-        return Response(status=204)
+    def retrieve(self, request, id):
+        return Response(json={'message': f'Retrieving portfolio from {id}'}, status=200)
