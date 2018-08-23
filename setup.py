@@ -14,7 +14,7 @@ requires = [
     'pyramid_debugtoolbar',
     'pyramid_jinja2',
     'pyramid_retry',
-    'pyramid_restful', # Installed by Max!
+    'pyramid-restful-framework', # Installed by Max!
     'pyramid_tm',
     'SQLAlchemy',
     'transaction',
