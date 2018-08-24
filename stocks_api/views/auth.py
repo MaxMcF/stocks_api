@@ -8,4 +8,4 @@ class AuthAPIView(APIViewSet):
     '''
 
     def create(self, request, id=None):
-        return Response(json={'message': f'Created a single auth resource for {id}'})
+        return Response(json={'message': 'Created a single auth resource for Auth API'})
