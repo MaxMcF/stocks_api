@@ -8,4 +8,4 @@ class PortfolioAPIView(APIViewSet):
     '''
 
     def retrieve(self, request, id):
-        return Response(json={'message': f'Retrieving portfolio from {id}'}, status=200)
+        return Response(json={'message': 'Retrieving single portfolio from Portfolio API'}, status=200)

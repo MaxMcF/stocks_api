@@ -11,7 +11,7 @@ class StocksAPIView(APIViewSet):
         return Response(json={'message': 'Creating a single stock record'}, status=201)
 
     def retrieve(self, request, id):
-        return Response(json={'message': f'Retrieving stock record from {id}'}, status=200)
+        return Response(json={'message': 'Retrieving single stock record from stocks API'}, status=200)
 
     def destroy(self, request, id):
         return Response(status=204)

@@ -8,4 +8,4 @@ class CompanyAPIView(APIViewSet):
     '''
 
     def retrieve(self, request, id=None):
-        return Response(json={'message': f'Provided a single resource for {id}'}, status=200)
+        return Response(json={'message': 'Provided a single company resource for Company API'}, status=200)
