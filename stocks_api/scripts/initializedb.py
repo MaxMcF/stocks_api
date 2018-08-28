@@ -15,7 +15,9 @@ from ..models import (
     get_session_factory,
     get_tm_session,
     )
-from ..models import MyModel
+from ..models import StocksInfo
+from ..models import Portfolio
+# from ..models import MyModel
 
 
 def usage(argv):
@@ -33,13 +35,16 @@ def main(argv=sys.argv):
     setup_logging(config_uri)
     settings = get_appsettings(config_uri, options=options)
 
+    # Creates a cnnection (engine) to the DB
     engine = get_engine(settings)
+    # Creates tables for our models in the DB
     Base.metadata.create_all(engine)
 
-    session_factory = get_session_factory(engine)
+    # Below us used for seeding of the database
+    # session_factory = get_session_factory(engine)
 
-    with transaction.manager:
-        dbsession = get_tm_session(session_factory, transaction.manager)
+    # with transaction.manager:
+    #     dbsession = get_tm_session(session_factory, transaction.manager)
 
-        model = MyModel(name='one', value=1)
-        dbsession.add(model)
+    #     model = MyModel(name='one', value=1)
+    #     dbsession.add(model)
