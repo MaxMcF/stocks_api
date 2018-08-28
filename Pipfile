@@ -8,6 +8,7 @@ stocks-api = {editable = true, path = ".", extras = ["testing"]}
 pyramid = "*"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
 python_version = "3.7"
