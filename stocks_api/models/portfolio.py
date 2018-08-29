@@ -1,15 +1,18 @@
 from datetime import datetime as dt
 from sqlalchemy.exc import DBAPIError
+from sqlalchemy.orm import relationship
 from sqlalchemy import(
     Column,
     Index,
     Integer,
     Text,
     DateTime,
-    Float
+    Float,
+    ForeignKey
 )
 
 from .meta import Base
+
 
 class Portfolio(Base):
     __tablename__ = 'portfolio'
@@ -18,6 +21,9 @@ class Portfolio(Base):
     date_created = Column(DateTime, default=dt.now())
     date_updated = Column(DateTime, default=dt.now(), onupdate=dt.now())
 
+    account_id = Column(Integer, ForeignKey('accounts.id'), nullable=False)
+    accounts = relationship('Account', back_populates='portfolio')
+
     @classmethod
     def new(cls, request, **kwargs):
         if request.dbsession is None:
@@ -25,8 +31,11 @@ class Portfolio(Base):
         # weather = WeatherLocation({'name': 'some name', 'zip_code': 98012})
         # weather = cls(**kwargs)
         # request.dbsession.add(weather)
+        portfolio = cls(**kwargs)
+        request.dbsession.add(portfolio)
+
         return request.dbsession.query(cls).filter(
-            cls.name == kwargs['symbol']).one_or_none()
+            cls.name == kwargs['name']).one_or_none()
 
     @classmethod
     def one(cls, request, pk=None):
