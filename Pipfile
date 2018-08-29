@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 stocks-api = {editable = true, path = ".", extras = ["testing"]}
 pyramid = "*"
+requests = "*"
+pyramid-restful-framework = "*"
+marshmallow-sqlalchemy = "*"
+"psycopg2-binary" = "*"
 
 [dev-packages]
 pylint = "*"
