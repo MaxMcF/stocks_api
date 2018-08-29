@@ -13,4 +13,4 @@ def includeme(config):
     router.register('api/v1/stock', StocksAPIView, 'stock')
     router.register('api/v1/company', CompanyAPIView, 'company')
     router.register('api/v1/portfolio', PortfolioAPIView, 'portfolio')
-    router.register('api/v1/auth', AuthAPIView, 'auth')
+    router.register('api/v1/auth/{auth}', AuthAPIView, 'auth')

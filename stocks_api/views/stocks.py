@@ -14,7 +14,7 @@ def lookup(request):
     """This is going to listen to a request from a specific endpoint.
     """
     symbol = request.matchdict['symbol']
-    url = f'{API_URL}stock/{symbol}/chart'
+    url = f'{API_URL}stock/{symbol}/company'
     response = requests.get(url)
 
     return Response(json=response.json(), status=200)
@@ -46,7 +46,20 @@ class StocksAPIView(APIViewSet):
         return Response(json=data, status=201)
 
     def retrieve(self, request, id=None):
-        return Response(json={'message': 'Retrieving single stock record from stocks API'}, status=200)
+        record = StocksInfo.one(request, id)
+        if not record:
+            return Response(json='Not Found', status=404)
+        schema = StocksInfoSchema()
+        data = schema.dump(record).data
+
+        return Response(json=data, status=200)
+
+    def list(self, request):
+        records = StocksInfo.all(request)
+        schema = StocksInfoSchema()
+        data = [schema.dump(record) for record in records]
+
+        return Response(json=data, status=200)
 
     def destroy(self, request, id=None):
         """
