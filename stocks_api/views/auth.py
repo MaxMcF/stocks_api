@@ -12,7 +12,11 @@ class AuthAPIView(APIViewSet):
     # import pdb; pdb.set_trace()
 
     def create(self, request, auth=None):
-        """
+        """This creates a new user session. It accepts two subpaths, register and login.
+        If registering, a user account is created for the first time and stored in the local database.
+        If logging in, it searches for the user in the local database, and attempts to match the passwords.
+        If successful, a new session is started and all of the authorization that the user has is reflected in
+        what the user can view/interact with.
         """
         data = json.loads(request.body)
         if auth == 'register':

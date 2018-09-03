@@ -9,7 +9,9 @@ from sqlalchemy import (
 )
 
 class AccountRole(Base):
-    """
+    """This creates a many to many ID relationship within the account roles table.
+    Since multiple accounts can have the same role, and since each account can have multiple
+    roles, a many-to-many table is necessary.
     """
     __tablename__ = 'account_roles'
     id = Column(Integer, primary_key=True, autoincrement=True)
