@@ -12,7 +12,10 @@ class PortfolioAPIView(APIViewSet):
     actual functionality besides just sending jsons.
     '''
     def create(self, request):
-        """
+        """This method checks to see if the user correctly implimented the syntax for creating
+        a new portfolio. If the syntax is correct, it then checks to see if the portfolio already
+        exists in the database. If the portfolio name is new, then the portfolio is created and tied
+        to the current user.
         """
         try:
             kwargs = json.loads(request.body)

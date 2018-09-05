@@ -73,7 +73,6 @@ class Account(Base):
             if manager.check(account.password, password):
                 return account
 
-
         return None
 
 
