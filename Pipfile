@@ -12,6 +12,12 @@ marshmallow-sqlalchemy = "*"
 "psycopg2-binary" = "*"
 pyramid-jwt = "*"
 cryptacular = "*"
+pandas = "*"
+numpy = "*"
+matplotlib = "*"
+sklearn = "*"
+bokeh = "*"
+scipy = "*"
 
 [dev-packages]
 pylint = "*"
