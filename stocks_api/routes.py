@@ -1,5 +1,5 @@
 from pyramid_restful.routers import ViewSetRouter
-from .views import StocksAPIView, PortfolioAPIView, CompanyAPIView, AuthAPIView
+from .views import StocksAPIView, PortfolioAPIView, CompanyAPIView, AuthAPIView, VisualAPIView
 
 def includeme(config):
     '''This is the main routes page. This utilizes pyramid restful routes to link the requests
@@ -14,3 +14,4 @@ def includeme(config):
     router.register('api/v1/company', CompanyAPIView, 'company', permission='admin')
     router.register('api/v1/portfolio', PortfolioAPIView, 'portfolio')
     router.register('api/v1/auth/{auth}', AuthAPIView, 'auth')
+    router.register('api/v1/visuals', VisualAPIView, 'view')
