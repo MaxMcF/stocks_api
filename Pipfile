@@ -18,6 +18,7 @@ matplotlib = "*"
 sklearn = "*"
 bokeh = "*"
 scipy = "*"
+webtest = "*"
 
 [dev-packages]
 pylint = "*"
