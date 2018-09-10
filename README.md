@@ -1,7 +1,7 @@
 # Stocks API
 
 **Author**: Max McFarland
-**Version**: 0.1.0
+**Version**: 0.2.0
 
 ## Overview
 This application protocol interface allows for users to make requests to the appropriate path, and on success will recieve relevant information about various company stocks. Users can make accounts, create portfolios that are tied to their account, and add stocks to the relevant portfolio.
@@ -22,6 +22,7 @@ localhost:6543/api/v1/portfolio - This will return all the portfolios attached t
 localhost:6543/api/v1/portfolio/{portfolio name} - This will return the portfolio searched for (must be owned by current user)
 localhost:6543/api/v1/auth/register email={user email} password={user password} - This will register a new user in the local database.
 localhost:6543/api/v1/auth/login email={user email} password={user password} - This will login a user, which searches for an existing user instance in the local database.
+localhost:6543/api/v1/visuals/{symbol} - This will give a graph of the historical 5 year growth based on percentage.
 
 ## Change Log
 
@@ -30,3 +31,4 @@ localhost:6543/api/v1/auth/login email={user email} password={user password} - T
 08-29-18 2:00pm - Added user authentication.
 08-30-18 1:00pm - finished user authentication and authoriztion.
 09-02-18 2:30pm - adding docstrings, readme, and cleaning up broken code regarding functionality.
+09-09-18 2:45pm - Added visuals/graph route, which now works as a GET request.
